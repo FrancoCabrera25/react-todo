@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+.container-task{
+    display: flex;
+         justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-task{
+    margin: 5px !important;
+    padding: 10px !important;
+    width: 25% !important;
+}
+
+
