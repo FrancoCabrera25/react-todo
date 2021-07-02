@@ -2,11 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import { Provider } from "react-redux";
 
+import Home from './pages/Home';
+
 function App({ store })  {
   return (
     <Provider store={store}>
-    <div className="App">
-      <header className="App-header">
+    <div >
+    <Home />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -19,7 +22,7 @@ function App({ store })  {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
     </Provider>
   );
