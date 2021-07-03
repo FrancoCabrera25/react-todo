@@ -7,15 +7,21 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
+import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
+  CardTaskContainer:{
+      padding: 2,
+      margin:5,
+      flex: 1
+  }
 });
 const CardTask = () => {
   const classes = useStyles();
   return (
+    <div className={classes.CardTaskContainer}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
@@ -44,6 +50,7 @@ const CardTask = () => {
           </Button>
         </CardActions>
       </Card>
+      </div>
   );
 };
 
