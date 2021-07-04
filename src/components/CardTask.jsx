@@ -10,19 +10,29 @@ import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+
   },
-  CardTaskContainer:{
-      padding: 2,
-      margin:5,
-      flex: 1
-  }
+  card:{
+    flex: '1 0 500px',
+    boxSizing: 'border-box',
+    margin: '1rem .25em',
+  },
+  '@media screen and (min-width: 40em)': {
+    card: {
+       maxWidth: 'calc(50% -  1em)',
+    },
+},
+
+'@media screen and (min-width: 60em)' :{
+    card: {
+        maxWidth: 'calc(25% - 1em)',
+    }
+}
 });
 const CardTask = () => {
   const classes = useStyles();
   return (
-    <div className={classes.CardTaskContainer}>
-      <Card className={classes.root}>
+      <Card className={classes.card}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -50,7 +60,6 @@ const CardTask = () => {
           </Button>
         </CardActions>
       </Card>
-      </div>
   );
 };
 
