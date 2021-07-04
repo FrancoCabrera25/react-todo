@@ -1,9 +1,6 @@
-import { React } from "react";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
 import CardTask from "../components/CardTask";
 import "./home.css";
 import ModalTask from "../components/ModalTask";
@@ -34,18 +31,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.tasksReducer.tasks);
+
+  useEffect(() => {
+   console.log('tasks', tasks)
+  }, [tasks]);
+
   const classes = useStyles();
   return (
     <div>
       <div className={classes.centered}>
         <div className={classes.taskContainer}>
-          <CardTask />
-          <CardTask />
-          <CardTask />
-          <CardTask />
-          <CardTask />
-          <CardTask />
-          <CardTask />
+        {tasks.map((value, index) => (
+            <CardTask key={index}  />
+          ))}
         </div>
       </div>
       <ModalTask />

@@ -1,10 +1,11 @@
 import { React, useState } from "react";
+import { useDispatch } from "react-redux";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-
-
+import Button from '@material-ui/core/Button';
+import { addTask} from '../redux/actions/task.actions';
 function rand() {
     return Math.round(Math.random() * 20) - 10;
   }
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModalTask = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
@@ -49,13 +51,29 @@ const ModalTask = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const onAddTask =() => {
+    let idtask = 1;
+    idtask++;
+    const task = {
+      id: idtask,
+      name : "prueba",
+      description: "daalalala",
+      estado: "dadasdasdasd",
+    }
+    console.log('add task', task);
+    dispatch(addTask(task))    
+  }
+
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Text in a modal</h2>
       <p id="simple-modal-description">
         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
       </p>
-    
+      <Button variant="contained" onClick= {onAddTask} color="primary">
+  Primary
+</Button>
     </div>
   );
   return (
