@@ -29,34 +29,34 @@ const useStyles = makeStyles({
     }
 }
 });
-const CardTask = () => {
+const CardTask = (task) => {
   const classes = useStyles();
+
   return (
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia
+     {/*     <CardMedia
             component="img"
             alt="Contemplative Reptile"
             height="140"
             image="/static/images/cards/contemplative-reptile.jpg"
             title="Contemplative Reptile"
-          />
+          />*/}
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+                {task.title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+                {task.description}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
-            Share
+          <Button size="small" color="secondary">
+            Eliminar
           </Button>
           <Button size="small" color="primary">
-            Learn More
+            Editar
           </Button>
         </CardActions>
       </Card>
