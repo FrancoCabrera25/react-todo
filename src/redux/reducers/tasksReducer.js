@@ -9,7 +9,8 @@ export default function tasksReducer(state = initialState, action) {
       return { ...state, tasks: [...state.tasks, action.payload] };
 
     case EDIT_TASK:
-      return { ...state };
+      // eslint-disable-next-line no-unused-expressions
+      return { ...state, tasks: state.tasks.map(task =>{ task.id === action.payload.id ? action.payload : task }) };
 
     case DELETE_TASK:
       return { ...state };
